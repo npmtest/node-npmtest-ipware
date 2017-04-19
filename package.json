@@ -1,1 +1,40 @@
-{     "devDependencies": {         "ipware": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-ipware",     "homepage": "https://github.com/npmtest/node-npmtest-ipware",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-ipware.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  [ipware (v1.0.0)](https://github.com/un33k/node-ipware)  [![npm package](https://img.shields.io/npm/v/npmtest-ipware.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-ipware) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-ipware.svg)](https://travis-ci.org/npmtest/node-npmtest-ipware)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "ipware": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-ipware",
+    "keywords": [
+        "coverage",
+        "test",
+        "ipware"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_ipware.js",
+    "name": "npmtest-ipware",
+    "nameAlias": "npmtest_ipware",
+    "nameOriginal": "npmtest-ipware",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-ipware.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
